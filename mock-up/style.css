@@ -1,0 +1,10 @@
+aside {
+  width: 10%;
+  float: left;
+  background-color: F9FAFB;
+}
+
+main {
+  width: 90%;
+  float: left;
+}
