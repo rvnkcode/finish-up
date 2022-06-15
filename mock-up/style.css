@@ -1,11 +1,36 @@
-body {
-  display: flex;
+html {
   font-family: sans-serif;
 }
+body {
+  display: flex;
+  flex-wrap: wrap;
+  /*to remove vertical scroll bar when height set the 100vh*/
+  margin: 0;
+  height: 100vh;
+}
+
 aside {
   background-color: #F9FAFB;
 }
 
+aside > footer {
+  display: flex;
+}
+
+input[type="file"] {
+  display: none;
+}
+
 main {
-  flex: 1;
+  /*commented out because of flex-wrap
+  flex: 1;*/
+}
+
+ul {
+  list-style-type: none;
+}
+
+footer {
+  bottom: 0;
+  position: absolute;
 }
