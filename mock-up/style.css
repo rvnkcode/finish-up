@@ -1,36 +1,180 @@
 html {
-  font-family: sans-serif;
+  font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+  color: #292E35;
 }
+
 body {
   display: flex;
-  flex-wrap: wrap;
-  /*to remove vertical scroll bar when height set the 100vh*/
-  margin: 0;
+  flex-wrap: wrap-reverse;
   height: 100vh;
 }
 
-aside {
-  background-color: #F9FAFB;
+/*==============for HTML elements==============*/
+img {
+  vertical-align: text-bottom;
+  margin-right: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-aside > footer {
-  display: flex;
-}
-
-input[type="file"] {
+input[type="radio"], input[type="file"] {
   display: none;
 }
 
-main {
-  /*commented out because of flex-wrap
-  flex: 1;*/
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
-ul {
-  list-style-type: none;
+label, button {
+  cursor: pointer;
+  border: none;
 }
 
 footer {
-  bottom: 0;
-  position: absolute;
+  border-top: 0.1rem;
+  border-color: #F3F3F5;
+  border-style: solid;
+}
+
+/*==============for Left side==============*/
+aside {
+  background-color: #F9FAFB;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  padding: 1.5rem 1rem;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+}
+
+.navList > li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.navList label {
+  width: auto;
+  display: block;
+  padding-inline: 0.5rem;
+}
+
+.navList input[type="radio"]:checked + label {
+  background-color: #E4E7EA;
+  border-radius: 0.25rem;
+}
+
+.counter {
+  float: right;
+  color: #989DA1;
+}
+
+aside > footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+/*==============for Right side==============*/
+main {
+  padding-top: 1.75rem;
+  /*centering*/
+  padding-inline: 20%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/*==============for Header==============*/
+header {
+  margin-bottom: 0.5rem;
+}
+
+header > img {
+  float: left;
+}
+
+header > h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tagList {
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.tagList > li {
+  margin-right: 0.5rem;
+}
+
+.tagList label {
+  padding: 0.25em 0.7em;
+  color: #989DA1;
+}
+
+.tagList label:hover {
+  padding: 0.15em 0.6em;
+  border-radius: 0.75rem;
+  border: 0.1em solid #989DA1;
+}
+
+.tagList input[type="radio"]:checked + label {
+  color: #FFFFFF;
+}
+
+#tagsAll:checked + label {
+  border-radius: 0.75rem;
+  background-color: #BEC2C6;
+  border-color: transparent;
+}
+
+#tag1:checked + label, #tag2:checked + label {
+  border-radius: 0.75rem;
+  background-color: #509DFF;
+  border-color: transparent;
+}
+
+/*==============for Main Content area==============*/
+.sectionForNotification {
+  background-color: #F3F3F5;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionForNotification > button {
+  background-color: #DADBE1;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.alert {
+  font-size: 0.9em;
+}
+
+.todoLists {
+  font-size: 14px;
+}
+
+/*==============for footer==============*/
+footer button {
+  background-color: transparent;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+main > footer {
+  margin-top: auto;
+  display: inline-flex;
+  justify-content: space-around;
 }

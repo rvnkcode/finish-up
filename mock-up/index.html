@@ -4,42 +4,72 @@
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>finish-up mock-up site</title>
+	<link rel="stylesheet" href="reset.css"/>
 	<link rel="stylesheet" href="style.css"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&family=Roboto:wght@300;400;700&display=swap"
+				rel="stylesheet">
 </head>
 <body>
 <aside>
 	<nav>
-		<ul class="entireNavList">
+		<ul class="navList">
 			<li>
-				<ul class="inboxList">
-					<li><a href="#">inbox</a></li>
+				<ul>
+					<li><input id="inbox" type="radio" name="nav" value="inbox" checked><label
+								for="inbox"><img src="../public/svg/inbox.svg"
+																 alt="inbox icon">Inbox<span class="counter">1</span></label>
+					</li>
 				</ul>
 			</li>
 			<li>
-				<ul class="specificTimeList">
-					<li><a href="#">today</a></li>
-					<li><a href="#">upcoming</a></li>
-					<li><a href="#">anytime</a></li>
-					<li><a href="#">someday</a></li>
+				<ul>
+					<li><input id="today" type="radio" name="nav" value="today"><label
+								for="today"><img src="../public/svg/checkbox.svg"
+																 alt="checkbox icon">Today</label></li>
+					<li><input id="upcoming" type="radio" name="nav" value="upcoming"><label
+								for="upcoming"><img src="../public/svg/calendar.svg"
+																		alt="calendar icon">Upcoming</label>
+					</li>
+					<li><input id="anytime" type="radio" name="nav" value="anytime"><label
+								for="anytime"><img src="../public/svg/coffee.svg"
+																	 alt="coffee cup icon">Anytime</label>
+					</li>
+					<li><input id="someday" type="radio" name="nav" value="someday"><label
+								for="someday"><img src="../public/svg/box-alt.svg"
+																	 alt="box icon">Someday</label>
+					</li>
 				</ul>
 			</li>
 			<li>
-				<ul class="otherList">
-					<li><a href="#">logbook</a></li>
-					<li><a href="#">trash</a></li>
+				<ul>
+					<li><input id="logbook" type="radio" name="nav" value="logbook"><label
+								for="logbook"><img src="../public/svg/book.svg"
+																	 alt="box icon">Logbook</label>
+					</li>
+					<li><input id="trash" type="radio" name="nav" value="trash"><label
+								for="trash"><img src="../public/svg/bin.svg"
+																 alt="bin icon">Trash</label></li>
 				</ul>
 			</li>
 			<li>
-				<ul class="projectList">
-					<li><a href="#">project 1</a></li>
+				<ul>
+					<li><input id="project1" type="radio" name="nav" value="project1"><label for="project1"><img
+								src="../public/svg/list.svg" alt="project icon">Project1</label>
+					</li>
 				</ul>
 			</li>
 			<li>
-				<ul class="areaList">
-					<li><a href="#">area 1</a></li>
+				<ul>
+					<li><input id="area1" type="radio" name="nav" value="area1"><label for="area1"><img
+								src="../public/svg/layers.svg" alt="area icon">Area1</label>
+					</li>
 					<li>
-						<ul class="projectOfAreaList">
-							<li><a href="#">project of area 1</a></li>
+						<ul>
+							<li><input id="project of area1" type="radio" name="nav" value="project of area1"><label
+										for="project of area1"><img src="../public/svg/list.svg" alt="project icon">project of
+								Area1</label></li>
 						</ul>
 					</li>
 				</ul>
@@ -47,31 +77,39 @@
 		</ul>
 	</nav>
 	<footer>
-		<section>
-			<button>new list</button>
-			<button>setting</button>
-		</section>
-		<section>
-			<input type="file" accept=".txt"/>
-			<button>import</button>
-			<button>export</button>
-		</section>
+		<button><img src="../public/svg/folder-add.svg" alt="add project button"></button>
+		<!--			<button><img src="../public/svg/plus.svg" alt="setting button"></button>-->
+		<input type="file" accept=".txt"/>
+		<button><img src="../public/svg/upload.svg" alt="upload file button"></button>
+		<button><img src="../public/svg/download.svg" alt="export button"></button>
 	</footer>
 </aside>
 <main>
 	<header>
-		<h1>inbox</h1>
+		<img src="../public/svg/inbox.svg" alt="inbox icon">
+		<h1>Inbox</h1>
+		<section class="sectionForTags">
+			<ul class="tagList">
+				<li><input id="tagsAll" type="radio" name="tags" value="all" checked><label for="tagsAll">All</label></li>
+				<li><input id="tag1" type="radio" name="tags" value="tag1"><label for="tag1">tag1</label></li>
+				<li><input id="tag2" type="radio" name="tags" value="tag2"><label for="tag2">tag2</label></li>
+			</ul>
+		</section>
 	</header>
-	<section>
+	<section class="sectionForNotification">
+		<p class="alert">1 to-do was moved out of the Inbox</p>
+		<button>OK</button>
+	</section>
+	<section class="sectionForTodo">
 		<ul class="todoLists">
-			<li><input type="checkbox"/></li>
+			<li><label><input type="checkbox"/>To do 1</label></li>
 		</ul>
 	</section>
 	<footer>
-		<button>new item</button>
-		<button>when</button>
-		<button>move</button>
-		<button>quick find</button>
+		<button><img src="../public/svg/plus.svg" alt="add task button"></button>
+		<button><img src="../public/svg/calendar-add.svg" alt="add schedule button"></button>
+		<button><img src="../public/svg/arrow-right.svg" alt="move task button"></button>
+		<button><img src="../public/svg/search.svg" alt="search button"></button>
 	</footer>
 </main>
 </body>
