@@ -11,33 +11,23 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&family=Roboto:wght@300;400;700&display=swap"
 				rel="stylesheet">
 </head>
-<body id="root">
-<!-- Aside / start -->
+<body>
 <aside>
 	<nav>
 		<ul class="navList">
 			<li>
 				<ul>
-					<li><input id="inbox" type="radio" name="nav" value="inbox" checked><label
+					<li><input id="inbox" type="radio" name="nav" value="inbox"><label
 								for="inbox"><img src="../src/svg/inbox.svg"
-																 alt="inbox icon"><a href="inbox.html">Inbox</a>
-						<!-- Counter / start -->
-						<span class="counter">1</span>
-						<!-- Counter / end   -->
-					</label>
+																 alt="inbox icon"><a href="inbox.html">Inbox</a><span class="counter">1</span></label>
 					</li>
 				</ul>
 			</li>
 			<li>
 				<ul>
-					<li><input id="today" type="radio" name="nav" value="today"><label
+					<li><input id="today" type="radio" name="nav" value="today" checked><label
 								for="today"><img src="../src/svg/sun.svg"
-																 alt="today icon"><a href="today.html">Today</a>
-						<!-- Counter / start -->
-						<span class="counter">1</span>
-						<!-- Counter / end   -->
-					</label>
-					</li>
+																 alt="today icon"><a href="today.html">Today</a><span class="counter">1</span></label></li>
 					<li><input id="upcoming" type="radio" name="nav" value="upcoming"><label
 								for="upcoming"><img src="../src/svg/calendar.svg"
 																		alt="upcoming icon">Upcoming</label>
@@ -58,14 +48,11 @@
 								for="logbook"><img src="../src/svg/book.svg"
 																	 alt="logbook icon">Logbook</label>
 					</li>
-					<!-- Trash / start -->
 					<li><input id="trash" type="radio" name="nav" value="trash"><label
 								for="trash"><img src="../src/svg/bin.svg"
 																 alt="trash icon">Trash</label></li>
-					<!-- Trash / end   -->
 				</ul>
 			</li>
-			<!-- Project / start -->
 			<li>
 				<ul>
 					<li><input id="project1" type="radio" name="nav" value="project1"><label for="project1"><img
@@ -73,14 +60,11 @@
 					</li>
 				</ul>
 			</li>
-			<!-- Project / end   -->
-			<!-- Area / start -->
 			<li>
 				<ul>
 					<li><input id="area1" type="radio" name="nav" value="area1"><label for="area1"><img
 								src="../src/svg/layers.svg" alt="area icon">Area1</label>
 					</li>
-					<!-- SubProject / start -->
 					<li>
 						<ul>
 							<li><input id="project of area1" type="radio" name="nav" value="project of area1"><label
@@ -88,28 +72,24 @@
 								Area1</label></li>
 						</ul>
 					</li>
-					<!-- SubProject / end   -->
 				</ul>
 			</li>
-			<!-- Area / end   -->
 		</ul>
 	</nav>
 	<footer>
 		<button><img src="../src/svg/folder-add.svg" alt="add project button"></button>
-		<!-- TODO: setting feature		<button><img src="../public/svg/plus.svg" alt="setting button"></button>-->
+		<!--			<button><img src="../public/svg/plus.svg" alt="setting button"></button>-->
 		<input type="file" accept=".txt"/>
 		<button><img src="../src/svg/upload.svg" alt="upload file button"></button>
 		<button><img src="../src/svg/download.svg" alt="export button"></button>
 	</footer>
 </aside>
-<!-- Aside / end   -->
-<!-- MainSection / start -->
 <section>
 	<main>
 		<header>
-			<img src="../src/svg/inbox.svg" alt="inbox icon">
-			<h1>Inbox</h1>
-			<section>
+			<img src="../src/svg/sun.svg" alt="today icon">
+			<h1>Today</h1>
+<!--			<section>
 				<ul>
 					<li><input id="tagsAll" type="radio" name="tags" value="all" class="tagsAll" checked><label
 								for="tagsAll">All</label></li>
@@ -118,20 +98,18 @@
 					<li><input id="tag2" type="radio" name="tags" value="tag2" class="tagChecked"><label for="tag2">tag2</label>
 					</li>
 				</ul>
-			</section>
+			</section>-->
 		</header>
-		<section class="sectionForNotification">
+<!--		<section class="sectionForNotification">
 			<p>1 to-do was moved out of the Inbox</p>
 			<button>OK</button>
-		</section>
+		</section>-->
 		<section>
 			<ul class="todoLists">
 				<li><input id="indexNo1" type="checkbox" class="forCounting"/><label for="indexNo1" class="fullWidth">
-					<input id="to do 1" type="checkbox" class="forChecking"/><label for="to do 1"><span
-							class="todoName">To do 1</span><img
+					<input id="to do 1" type="checkbox" class="forChecking"/><label for="to do 1"><span class="todoName">To do 1</span><img
 							src="../src/svg/sticker.svg" alt="note icon"><img
-							src="../src/svg/list.svg" alt="sub list icon"><span class="tag">tag1</span><span
-							class="tag">tag2</span><span class="floatRight">12 days left</span><img
+							src="../src/svg/list.svg" alt="sub list icon"><span class="tag">tag1</span><span class="tag">tag2</span><span class="floatRight">12 days left</span><img
 							src="../src/svg/flag.svg" alt="due date icon"
 							class="floatRight"></label></label>
 				</li>
@@ -146,6 +124,5 @@
 		<button class="mainFooter"><img src="../src/svg/search.svg" alt="search button"></button>
 	</footer>
 </section>
-<!-- MainSection / end   -->
 </body>
 </html>

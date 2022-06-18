@@ -10,6 +10,16 @@ body {
 }
 
 /*==============for HTML elements==============*/
+a {
+  text-decoration: none;
+  color: #292E35;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #292E35;
+}
+
 img {
   vertical-align: text-bottom;
   width: 1.25rem;
@@ -83,7 +93,7 @@ body > section {
 }
 
 main {
-  padding-top: 1.75rem;
+  padding-top: 3rem;
   /*centering*/
   padding-inline: 20%;
   flex: 1;
@@ -93,7 +103,7 @@ main {
 
 /*==============for Header==============*/
 header {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 header > img {
@@ -144,7 +154,7 @@ header input[type="radio"]:checked + label {
 }
 
 /*==============for Main Content area==============*/
-main > section:nth-child(2) {
+.sectionForNotification {
   background-color: #F3F3F5;
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -155,7 +165,7 @@ main > section:nth-child(2) {
   font-size: 0.9em;
 }
 
-main > section:nth-child(2) > button {
+.sectionForNotification > button {
   background-color: #DADBE1;
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
