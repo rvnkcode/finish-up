@@ -84,33 +84,35 @@
 		<button><img src="../public/svg/download.svg" alt="export button"></button>
 	</footer>
 </aside>
-<main>
-	<header>
-		<img src="../public/svg/inbox.svg" alt="inbox icon">
-		<h1>Inbox</h1>
-		<section class="sectionForTags">
-			<ul class="tagList">
-				<li><input id="tagsAll" type="radio" name="tags" value="all" checked><label for="tagsAll">All</label></li>
-				<li><input id="tag1" type="radio" name="tags" value="tag1"><label for="tag1">tag1</label></li>
-				<li><input id="tag2" type="radio" name="tags" value="tag2"><label for="tag2">tag2</label></li>
+<section>
+	<main>
+		<header>
+			<img src="../public/svg/inbox.svg" alt="inbox icon">
+			<h1>Inbox</h1>
+			<section class="sectionForTags">
+				<ul class="tagList">
+					<li><input id="tagsAll" type="radio" name="tags" value="all" checked><label for="tagsAll">All</label></li>
+					<li><input id="tag1" type="radio" name="tags" value="tag1"><label for="tag1">tag1</label></li>
+					<li><input id="tag2" type="radio" name="tags" value="tag2"><label for="tag2">tag2</label></li>
+				</ul>
+			</section>
+		</header>
+		<section class="sectionForNotification">
+			<p class="alert">1 to-do was moved out of the Inbox</p>
+			<button>OK</button>
+		</section>
+		<section class="sectionForTodo">
+			<ul class="todoLists">
+				<li><label><input type="checkbox"/>To do 1</label></li>
 			</ul>
 		</section>
-	</header>
-	<section class="sectionForNotification">
-		<p class="alert">1 to-do was moved out of the Inbox</p>
-		<button>OK</button>
-	</section>
-	<section class="sectionForTodo">
-		<ul class="todoLists">
-			<li><label><input type="checkbox"/>To do 1</label></li>
-		</ul>
-	</section>
+	</main>
 	<footer>
-		<button><img src="../public/svg/plus.svg" alt="add task button"></button>
-		<button><img src="../public/svg/calendar-add.svg" alt="add schedule button"></button>
-		<button><img src="../public/svg/arrow-right.svg" alt="move task button"></button>
-		<button><img src="../public/svg/search.svg" alt="search button"></button>
+		<button class="mainFooter"><img src="../public/svg/plus.svg" alt="add task button"></button>
+		<button class="mainFooter"><img src="../public/svg/calendar-add.svg" alt="add schedule button"></button>
+		<button class="mainFooter"><img src="../public/svg/arrow-right.svg" alt="move task button"></button>
+		<button class="mainFooter"><img src="../public/svg/search.svg" alt="search button"></button>
 	</footer>
-</main>
+</section>
 </body>
 </html>
