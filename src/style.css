@@ -1,0 +1,259 @@
+html {
+  font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+  color: #292E35;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  height: 100vh;
+}
+
+/*==============for HTML elements==============*/
+a {
+  text-decoration: none;
+  color: #292E35;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #292E35;
+}
+
+img {
+  vertical-align: text-bottom;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+input[type="radio"], input[type="file"] {
+  display: none;
+}
+
+label, button {
+  cursor: pointer;
+}
+
+label {
+  vertical-align: text-bottom;
+}
+
+footer {
+  border-top: 0.1rem;
+  border-color: #F3F3F5;
+  border-style: solid;
+}
+
+/*==============for Left side==============*/
+aside {
+  background-color: #F9FAFB;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  padding: 1.5rem 1rem;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+}
+
+.navList > li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.navList label {
+  width: auto;
+  display: block;
+  padding-inline: 0.5rem;
+}
+
+.navList img {
+  margin-right: 0.25rem;
+}
+
+.navList input[type="radio"]:checked + label {
+  background-color: #E4E7EA;
+  border-radius: 0.25rem;
+}
+
+.counter {
+  float: right;
+  color: #989DA1;
+}
+
+/*==============for Right side==============*/
+#root > section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+main {
+  padding-top: 3rem;
+  /*centering*/
+  padding-inline: 20%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/*==============for Header==============*/
+header {
+  margin-bottom: 1.5rem;
+}
+
+header > img {
+  float: left;
+  margin-right: 0.25rem;
+}
+
+header > h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+header ul {
+  display: flex;
+  font-size: 0.8rem;
+}
+
+header li {
+  margin-right: 0.5rem;
+}
+
+header label {
+  padding: 0.25em 0.7em;
+  color: #989DA1;
+}
+
+header label:hover {
+  padding: 0.15em 0.6em;
+  border-radius: 0.75rem;
+  border: 0.1em solid #989DA1;
+}
+
+header input[type="radio"]:checked + label {
+  color: #FFFFFF;
+}
+
+.tagsAll:checked + label {
+  border-radius: 0.75rem;
+  background-color: #BEC2C6;
+  border-color: transparent;
+}
+
+.tagChecked:checked + label {
+  border-radius: 0.75rem;
+  background-color: #509DFF;
+  border-color: transparent;
+}
+
+/*==============for Main Content area==============*/
+.sectionForNotification {
+  background-color: #F3F3F5;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.sectionForNotification > button {
+  background-color: #DADBE1;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+}
+
+.todoLists {
+  font-size: 14px;
+}
+
+.todoName {
+  margin-right: 0.25em;
+}
+
+.todoLists img {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+}
+
+.forCounting {
+  display: none;
+}
+
+label[class="fullWidth"] {
+  width: auto;
+  display: block;
+  padding: 0.25rem 0.1rem;
+  border-radius: 0.25rem;
+}
+
+.forCounting:checked + label {
+  background-color: #CAE2FF;
+}
+
+.forChecking {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.forChecking:checked + label {
+  color: #BEC2C6;
+}
+
+.forChecking:checked + label > .floatRight {
+  display: none;
+}
+
+.tag {
+  font-size: 0.85em;
+  color: #BEC2C6;
+  padding: 0.1em 0.5em;
+  border-radius: 0.75rem;
+  border: 1px solid #BEC2C6;
+  margin-right: 0.5em;
+}
+
+.floatRight {
+  float: right;
+  font-size: 0.9em;
+  color: #8C8F94;
+  margin-right: 0.25em;
+  margin-top: 0.25em;
+}
+
+/*==============for footer==============*/
+footer {
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+footer button {
+  background-color: transparent;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border: 0.01rem solid transparent;
+  width: 99%
+}
+
+footer button:hover {
+  border: 0.01rem solid #DADBE1; /*change color more darker*/
+  border-radius: 0.25rem;
+}
+
+aside > footer {
+  margin-top: auto;
+}
+
+section > footer {
+  padding-inline: 20%;
+}
