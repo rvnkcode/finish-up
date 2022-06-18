@@ -26,19 +26,19 @@
 			<li>
 				<ul>
 					<li><input id="today" type="radio" name="nav" value="today"><label
-								for="today"><img src="../public/svg/checkbox.svg"
-																 alt="checkbox icon">Today</label></li>
+								for="today"><img src="../public/svg/sun.svg"
+																 alt="today icon">Today</label></li>
 					<li><input id="upcoming" type="radio" name="nav" value="upcoming"><label
 								for="upcoming"><img src="../public/svg/calendar.svg"
-																		alt="calendar icon">Upcoming</label>
+																		alt="upcoming icon">Upcoming</label>
 					</li>
 					<li><input id="anytime" type="radio" name="nav" value="anytime"><label
 								for="anytime"><img src="../public/svg/coffee.svg"
-																	 alt="coffee cup icon">Anytime</label>
+																	 alt="anytime icon">Anytime</label>
 					</li>
 					<li><input id="someday" type="radio" name="nav" value="someday"><label
 								for="someday"><img src="../public/svg/box-alt.svg"
-																	 alt="box icon">Someday</label>
+																	 alt="someday icon">Someday</label>
 					</li>
 				</ul>
 			</li>
@@ -46,17 +46,17 @@
 				<ul>
 					<li><input id="logbook" type="radio" name="nav" value="logbook"><label
 								for="logbook"><img src="../public/svg/book.svg"
-																	 alt="box icon">Logbook</label>
+																	 alt="logbook icon">Logbook</label>
 					</li>
 					<li><input id="trash" type="radio" name="nav" value="trash"><label
 								for="trash"><img src="../public/svg/bin.svg"
-																 alt="bin icon">Trash</label></li>
+																 alt="trash icon">Trash</label></li>
 				</ul>
 			</li>
 			<li>
 				<ul>
 					<li><input id="project1" type="radio" name="nav" value="project1"><label for="project1"><img
-								src="../public/svg/list.svg" alt="project icon">Project1</label>
+								src="../public/svg/line-chart.svg" alt="project icon">Project1</label>
 					</li>
 				</ul>
 			</li>
@@ -68,7 +68,7 @@
 					<li>
 						<ul>
 							<li><input id="project of area1" type="radio" name="nav" value="project of area1"><label
-										for="project of area1"><img src="../public/svg/list.svg" alt="project icon">project of
+										for="project of area1"><img src="../public/svg/line-chart.svg" alt="project icon">project of
 								Area1</label></li>
 						</ul>
 					</li>
@@ -89,26 +89,36 @@
 		<header>
 			<img src="../public/svg/inbox.svg" alt="inbox icon">
 			<h1>Inbox</h1>
-			<section class="sectionForTags">
-				<ul class="tagList">
-					<li><input id="tagsAll" type="radio" name="tags" value="all" checked><label for="tagsAll">All</label></li>
-					<li><input id="tag1" type="radio" name="tags" value="tag1"><label for="tag1">tag1</label></li>
-					<li><input id="tag2" type="radio" name="tags" value="tag2"><label for="tag2">tag2</label></li>
+			<section>
+				<ul>
+					<li><input id="tagsAll" type="radio" name="tags" value="all" class="tagsAll" checked><label
+								for="tagsAll">All</label></li>
+					<li><input id="tag1" type="radio" name="tags" value="tag1" class="tagChecked"><label for="tag1">tag1</label>
+					</li>
+					<li><input id="tag2" type="radio" name="tags" value="tag2" class="tagChecked"><label for="tag2">tag2</label>
+					</li>
 				</ul>
 			</section>
 		</header>
-		<section class="sectionForNotification">
-			<p class="alert">1 to-do was moved out of the Inbox</p>
+		<section>
+			<p>1 to-do was moved out of the Inbox</p>
 			<button>OK</button>
 		</section>
-		<section class="sectionForTodo">
+		<section>
 			<ul class="todoLists">
-				<li><label><input type="checkbox"/>To do 1</label></li>
+				<li><input id="indexNo1" type="checkbox" class="forCounting"/><label for="indexNo1" class="fullWidth">
+					<input id="to do 1" type="checkbox" class="forChecking"/><label for="to do 1"><span class="todoName">To do 1</span><img
+							src="../public/svg/sticker.svg" alt="note icon"><img
+							src="../public/svg/list.svg" alt="sub list icon"><span class="tag">tag1</span><span class="tag">tag2</span><span class="floatRight">12 days left</span><img
+							src="../public/svg/flag.svg" alt="due date icon"
+							class="floatRight"></label></label>
+				</li>
 			</ul>
 		</section>
 	</main>
 	<footer>
 		<button class="mainFooter"><img src="../public/svg/plus.svg" alt="add task button"></button>
+		<button class="mainFooter"><img src="../public/svg/close.svg" alt="delete button"></button>
 		<button class="mainFooter"><img src="../public/svg/calendar-add.svg" alt="add schedule button"></button>
 		<button class="mainFooter"><img src="../public/svg/arrow-right.svg" alt="move task button"></button>
 		<button class="mainFooter"><img src="../public/svg/search.svg" alt="search button"></button>
