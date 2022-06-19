@@ -13,14 +13,14 @@
 </head>
 <body id="root">
 <!-- Aside / start -->
-<aside>
+<aside class="verticalFlexContainer">
 	<nav>
-		<ul class="navList">
+		<ul class="navList verticalFlexContainer">
 			<li>
 				<ul>
 					<li><input id="inbox" type="radio" name="nav" value="inbox" checked><label
 								for="inbox"><img src="../src/svg/inbox.svg"
-																 alt="inbox icon"><a href="inbox.html">Inbox</a>
+																 alt="inbox icon" class="icon"><a href="inbox.html">Inbox</a>
 						<!-- Counter / start -->
 						<span class="counter">1</span>
 						<!-- Counter / end   -->
@@ -32,7 +32,7 @@
 				<ul>
 					<li><input id="today" type="radio" name="nav" value="today"><label
 								for="today"><img src="../src/svg/sun.svg"
-																 alt="today icon"><a href="today.html">Today</a>
+																 alt="today icon" class="icon"><a href="today.html">Today</a>
 						<!-- Counter / start -->
 						<span class="counter">1</span>
 						<!-- Counter / end   -->
@@ -40,15 +40,15 @@
 					</li>
 					<li><input id="upcoming" type="radio" name="nav" value="upcoming"><label
 								for="upcoming"><img src="../src/svg/calendar.svg"
-																		alt="upcoming icon">Upcoming</label>
+																		alt="upcoming icon" class="icon">Upcoming</label>
 					</li>
 					<li><input id="anytime" type="radio" name="nav" value="anytime"><label
 								for="anytime"><img src="../src/svg/coffee.svg"
-																	 alt="anytime icon">Anytime</label>
+																	 alt="anytime icon" class="icon">Anytime</label>
 					</li>
 					<li><input id="someday" type="radio" name="nav" value="someday"><label
 								for="someday"><img src="../src/svg/box-alt.svg"
-																	 alt="someday icon">Someday</label>
+																	 alt="someday icon" class="icon">Someday</label>
 					</li>
 				</ul>
 			</li>
@@ -56,12 +56,12 @@
 				<ul>
 					<li><input id="logbook" type="radio" name="nav" value="logbook"><label
 								for="logbook"><img src="../src/svg/book.svg"
-																	 alt="logbook icon">Logbook</label>
+																	 alt="logbook icon" class="icon">Logbook</label>
 					</li>
 					<!-- Trash / start -->
 					<li><input id="trash" type="radio" name="nav" value="trash"><label
 								for="trash"><img src="../src/svg/bin.svg"
-																 alt="trash icon">Trash</label></li>
+																 alt="trash icon" class="icon">Trash</label></li>
 					<!-- Trash / end   -->
 				</ul>
 			</li>
@@ -69,7 +69,7 @@
 			<li>
 				<ul>
 					<li><input id="project1" type="radio" name="nav" value="project1"><label for="project1"><img
-								src="../src/svg/line-chart.svg" alt="project icon">Project1</label>
+								src="../src/svg/line-chart.svg" alt="project icon" class="icon">Project1</label>
 					</li>
 				</ul>
 			</li>
@@ -78,13 +78,14 @@
 			<li>
 				<ul>
 					<li><input id="area1" type="radio" name="nav" value="area1"><label for="area1"><img
-								src="../src/svg/layers.svg" alt="area icon">Area1</label>
+								src="../src/svg/layers.svg" alt="area icon" class="icon">Area1</label>
 					</li>
 					<!-- SubProject / start -->
 					<li>
 						<ul>
 							<li><input id="project of area1" type="radio" name="nav" value="project of area1"><label
-										for="project of area1"><img src="../src/svg/line-chart.svg" alt="project icon">project of
+										for="project of area1"><img src="../src/svg/line-chart.svg" alt="project icon" class="icon">project
+								of
 								Area1</label></li>
 						</ul>
 					</li>
@@ -104,10 +105,10 @@
 </aside>
 <!-- Aside / end   -->
 <!-- MainSection / start -->
-<section>
-	<main>
+<section class="verticalFlexContainer">
+	<main class="verticalFlexContainer">
 		<header>
-			<img src="../src/svg/inbox.svg" alt="inbox icon">
+			<img src="../src/svg/inbox.svg" alt="inbox icon" class="icon">
 			<h1>Inbox</h1>
 			<section>
 				<ul>
@@ -116,6 +117,8 @@
 					<li><input id="tag1" type="radio" name="tags" value="tag1" class="tagChecked"><label for="tag1">tag1</label>
 					</li>
 					<li><input id="tag2" type="radio" name="tags" value="tag2" class="tagChecked"><label for="tag2">tag2</label>
+					</li>
+					<li><input id="noTag" type="radio" name="tags" value="noTag" class="tagChecked"><label for="noTag">•••</label>
 					</li>
 				</ul>
 			</section>
@@ -129,11 +132,11 @@
 				<li><input id="indexNo1" type="checkbox" class="forCounting"/><label for="indexNo1" class="fullWidth">
 					<input id="to do 1" type="checkbox" class="forChecking"/><label for="to do 1"><span
 							class="todoName">To do 1</span><img
-							src="../src/svg/sticker.svg" alt="note icon"><img
-							src="../src/svg/list.svg" alt="sub list icon"><span class="tag">tag1</span><span
+							src="../src/svg/sticker.svg" alt="note icon" class="detailIcon"><img
+							src="../src/svg/list.svg" alt="sub list icon" class="detailIcon"><span class="tag">tag1</span><span
 							class="tag">tag2</span><span class="floatRight">12 days left</span><img
 							src="../src/svg/flag.svg" alt="due date icon"
-							class="floatRight"></label></label>
+							class="floatRight detailIcon"></label></label>
 				</li>
 			</ul>
 		</section>
