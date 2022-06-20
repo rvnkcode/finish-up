@@ -1,0 +1,341 @@
+/*==============Global styles==============*/
+html {
+  font-family: 'Roboto', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+  color: #292E35;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  height: 100vh;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #292E35;
+}
+
+input[type="radio"], input[type="file"] {
+  display: none;
+}
+
+label, button {
+  cursor: pointer;
+}
+
+/*==============General Classes==============*/
+.verticalFlexContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.listIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: text-bottom;
+  margin-right: 0.25rem;
+}
+
+.generalFooter {
+  border-top: 0.1rem;
+  border-color: #F3F3F5;
+  border-style: solid;
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.generalFooter img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.generalFooter button {
+  background-color: transparent;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border: 0.01rem solid transparent;
+  width: 99%
+}
+
+.generalFooter button:hover {
+  border: 0.01rem solid #DADBE1;
+  border-radius: 0.25rem;
+}
+
+/*==============Left Side==============*/
+aside {
+  background-color: #F9FAFB;
+  min-width: 10.25rem;
+}
+
+nav {
+  padding: 1.5rem 1rem;
+}
+
+.navList > li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.navList label {
+  width: auto;
+  display: block;
+  padding-inline: 0.5rem;
+}
+
+.navList input[type="radio"]:checked + label {
+  background-color: #E4E7EA;
+  border-radius: 0.25rem;
+}
+
+aside > footer {
+  margin-top: auto;
+}
+
+/*==============for Right side==============*/
+#root > section {
+  flex: 1;
+}
+
+main {
+  padding-top: 3rem;
+  padding-inline: 20%;
+  flex: 1;
+}
+
+main > header:first-child {
+  margin-bottom: 2.5rem;
+}
+
+header > img {
+  float: left;
+  margin-right: 0.25rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*
+
+label {
+  vertical-align: text-bottom;
+}
+
+!*==============for General Classes==============*!
+.titleUnderline {
+  display: block;
+  border-bottom: 0.01rem solid #DADBE1;
+  padding-bottom: 0.3rem;
+}
+
+!*==============for Left side==============*!
+
+.counter {
+  float: right;
+  color: #989DA1;
+}
+
+!*==============for Header==============*!
+!* today: schedule panel *!
+.time, .schedule {
+  font-size: 0.85em;
+  margin-right: 0.25rem;
+}
+
+.time {
+  color: #509DFF;
+}
+
+.schedule {
+  color: #989DA1;
+}
+
+!* tag lists*!
+header ul {
+  display: flex;
+  font-size: 0.8rem;
+}
+
+header li {
+  margin-right: 0.5rem;
+}
+
+header label {
+  padding: 0.25em 0.7em;
+  color: #989DA1;
+}
+
+header label:hover {
+  padding: 0.15em 0.6em;
+  border-radius: 0.75rem;
+  border: 0.1em solid #989DA1;
+}
+
+header input[type="radio"]:checked + label {
+  color: #FFFFFF;
+}
+
+.tagsAll:checked + label {
+  border-radius: 0.75rem;
+  background-color: #BEC2C6;
+  border-color: transparent;
+}
+
+.tagChecked:checked + label {
+  border-radius: 0.75rem;
+  background-color: #509DFF;
+  border-color: transparent;
+}
+
+!*==============for Main Content area==============*!
+main {
+  font-size: 14px;
+}
+
+.sectionForNotification {
+  background-color: #F3F3F5;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1.0rem;
+  margin-inline: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+main > .sectionForNotification {
+  justify-content: space-between;
+}
+
+.sectionForNotification > button {
+  background-color: #DADBE1;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+}
+
+!* general to-do-list section *!
+.todoLists li, .projectLists li {
+  margin-bottom: 0.25rem;
+}
+
+.todoName {
+  margin-right: 0.25em;
+}
+
+.detailIcon {
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.1em;
+  vertical-align: middle;
+}
+
+.forCounting {
+  display: none;
+}
+
+label[class="fullWidth"] {
+  width: auto;
+  display: block;
+  padding: 0.25rem 0.1rem;
+  border-radius: 0.25rem;
+}
+
+.forCounting:checked + label {
+  background-color: #CAE2FF;
+}
+
+.forChecking {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.forChecking:checked + label {
+  color: #BEC2C6;
+}
+
+.forChecking:checked + label > .floatRight {
+  display: none;
+}
+
+.tag {
+  font-size: 0.75em;
+  color: #BEC2C6;
+  padding: 0.05em 0.5em;
+  border-radius: 0.75rem;
+  border: 1px solid #BEC2C6;
+  margin-right: 0.5em;
+}
+
+.floatRight {
+  float: right;
+  font-size: 0.9em;
+  color: #8C8F94;
+  margin-right: 0.25em;
+  margin-top: 0.25em;
+}
+
+.projectName {
+  display: block;
+  font-size: 0.9em;
+  color: #BEC2C6;
+  margin-left: 1.5rem;
+}
+
+!*today: This Evening*!
+.sectionForEvening {
+  margin-top: 3rem;
+}
+
+.sectionForEvening > header {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.projectTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
+.projectCounter {
+  font-size: 0.75em;
+  color: #BEC2C6;
+  border: 0.01rem solid #DADBE1;
+  padding-inline: 0.25em;
+  margin-right: 0.25em;
+  vertical-align: middle;
+}
+
+!* Project Detail Area *!
+.sectionForProject {
+  margin-top: 2rem;
+}
+
+.sectionForProject .icon {
+  float: left;
+}
+
+.sectionForProject .todoLists {
+  margin-top: 0.5rem;
+}
+
+!*==============for footer==============*!
+
+section > footer {
+  padding-inline: 20%;
+}
+*/
