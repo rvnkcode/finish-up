@@ -51,6 +51,12 @@ footer {
   margin-right: 0.25rem;
 }
 
+.titleUnderline {
+  display: block;
+  border-bottom: 0.01rem solid #DADBE1;
+  padding-bottom: 0.3rem;
+}
+
 /*==============for Left side==============*/
 aside {
   background-color: #F9FAFB;
@@ -187,10 +193,6 @@ main > .sectionForNotification {
 }
 
 /* general to-do-list section */
-.sectionForTodos {
-  margin-bottom: 3rem;
-}
-
 .todoLists li, .projectLists li {
   margin-bottom: 0.25rem;
 }
@@ -259,6 +261,10 @@ label[class="fullWidth"] {
 }
 
 /*today: This Evening*/
+.sectionForEvening {
+  margin-top: 3rem;
+}
+
 .sectionForEvening > header {
   margin-bottom: 0;
 }
@@ -266,9 +272,6 @@ label[class="fullWidth"] {
 h2 {
   font-size: 1rem;
   font-weight: 700;
-  display: block;
-  border-bottom: 0.01rem solid #DADBE1;
-  padding-bottom: 0.3rem;
   margin-bottom: 1rem;
 }
 
@@ -285,6 +288,19 @@ h2 {
   padding-inline: 0.25em;
   margin-right: 0.25em;
   vertical-align: middle;
+}
+
+/* Project Detail Area */
+.sectionForProject {
+  margin-top: 2rem;
+}
+
+.sectionForProject .icon {
+  float: left;
+}
+
+.sectionForProject .todoLists {
+  margin-top: 0.5rem;
 }
 
 /*==============for footer==============*/

@@ -26,7 +26,7 @@
 			</li>
 			<li>
 				<ul>
-					<li><input id="today" type="radio" name="nav" value="today" checked><label
+					<li><input id="today" type="radio" name="nav" value="today"><label
 								for="today"><img src="../src/svg/sun.svg"
 																 alt="today icon" class="icon"><a href="today.html">Today</a><span
 								class="counter">1</span></label>
@@ -35,7 +35,7 @@
 								for="upcoming"><img src="../src/svg/calendar.svg"
 																		alt="upcoming icon" class="icon">Upcoming</label>
 					</li>
-					<li><input id="anytime" type="radio" name="nav" value="anytime"><label
+					<li><input id="anytime" type="radio" name="nav" value="anytime" checked><label
 								for="anytime"><img src="../src/svg/coffee.svg"
 																	 alt="anytime icon" class="icon"><a href="anytime.html">Anytime</a></label>
 					</li>
@@ -90,11 +90,8 @@
 <section class="verticalFlexContainer">
 	<main class="verticalFlexContainer">
 		<header>
-			<img src="../src/svg/sun.svg" alt="today icon" class="icon">
-			<h1>Today</h1>
-			<section class="sectionForNotification">
-				<span class="time">14:00</span><span class="schedule">study meeting</span>
-			</section>
+			<img src="../src/svg/coffee.svg" alt="anytime icon" class="icon">
+			<h1>Anytime</h1>
 			<section>
 				<ul>
 					<li><input id="tagsAll" type="radio" name="tags" value="all" class="tagsAll" checked><label
@@ -121,28 +118,34 @@
 				</li>
 			</ul>
 		</section>
-		<section class="sectionForEvening">
-			<header>
-				<img src="../src/svg/moon.svg" alt="moon icon" class="icon"/>
-				<h2 class="titleUnderline">This evening</h2>
-			</header>
-			<ul class="todoLists">
-				<li><input id="indexNo2" type="checkbox" class="forCounting"/><label for="indexNo2" class="fullWidth">
-					<input id="to do 2" type="checkbox" class="forChecking"/><label for="to do 2"><span
-							class="todoName">To do 1</span><img
-							src="../src/svg/sticker.svg" alt="note icon" class="detailIcon"><img
-							src="../src/svg/list.svg" alt="sub list icon" class="detailIcon"><span class="tag">tag1</span><span
-							class="tag">tag2</span><span class="floatRight">12 days left</span><img
-							src="../src/svg/flag.svg" alt="due date icon"
-							class="floatRight detailIcon"><span class="projectName">project name</span></label></label>
-				</li>
-			</ul>
+		<section class="sectionForProject">
 			<ul class="projectLists">
-				<li><input id="indexNo3" type="checkbox" class="forCounting"/><label for="indexNo3" class="fullWidth"><img
+				<li><img
 							src="../src/svg/line-chart.svg" alt="project icon" class="icon"/>
 					<a href="#"><span
-								class="projectTitle">Project1</span><span class="projectCounter">25</span><img
-								src="../src/svg/sticker.svg" alt="note icon" class="detailIcon"></a></label></li>
+								class="projectTitle titleUnderline">Project1</span></a>
+
+					<ul class="todoLists">
+						<li><input id="indexNo2" type="checkbox" class="forCounting"/><label for="indexNo2" class="fullWidth">
+							<input id="to do 2" type="checkbox" class="forChecking"/><label for="to do 2"><span
+									class="todoName">To do 1</span><img
+									src="../src/svg/sticker.svg" alt="note icon" class="detailIcon"><img
+									src="../src/svg/list.svg" alt="sub list icon" class="detailIcon"><span class="tag">tag1</span><span
+									class="tag">tag2</span><span class="floatRight">12 days left</span><img
+									src="../src/svg/flag.svg" alt="due date icon"
+									class="floatRight detailIcon"></label></label>
+						</li>
+						<li><input id="indexNo3" type="checkbox" class="forCounting"/><label for="indexNo3" class="fullWidth">
+							<input id="to do 3" type="checkbox" class="forChecking"/><label for="to do 3"><span
+									class="todoName">To do 1</span><img
+									src="../src/svg/sticker.svg" alt="note icon" class="detailIcon"><img
+									src="../src/svg/list.svg" alt="sub list icon" class="detailIcon"><span class="tag">tag1</span><span
+									class="tag">tag2</span><span class="floatRight">12 days left</span><img
+									src="../src/svg/flag.svg" alt="due date icon"
+									class="floatRight detailIcon"></label></label>
+						</li>
+					</ul>
+				</li>
 			</ul>
 		</section>
 	</main>
