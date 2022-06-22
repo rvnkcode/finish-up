@@ -15,12 +15,16 @@ a, a:visited {
   color: #292E35;
 }
 
-input[type="radio"], input[type="file"] {
+input[type="radio"] {
   display: none;
 }
 
 label, button {
   cursor: pointer;
+}
+
+label {
+  vertical-align: middle;
 }
 
 /*==============General Classes==============*/
@@ -88,11 +92,16 @@ nav {
   border-radius: 0.25rem;
 }
 
+.counter {
+  float: right;
+  color: #989DA1;
+}
+
 aside > footer {
   margin-top: auto;
 }
 
-/*==============for Right side==============*/
+/*==============Right side==============*/
 #root > section {
   flex: 1;
 }
@@ -100,6 +109,7 @@ aside > footer {
 main {
   padding-top: 3rem;
   padding-inline: 20%;
+  font-size: 14px;
   flex: 1;
 }
 
@@ -118,51 +128,10 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/*==============LEGACY==============*/
-/*==============LEGACY==============*/
-/*==============LEGACY==============*/
-/*==============LEGACY==============*/
-/*==============LEGACY==============*/
-/*
-
-label {
-  vertical-align: text-bottom;
-}
-
-!*==============for General Classes==============*!
-.titleUnderline {
-  display: block;
-  border-bottom: 0.01rem solid #DADBE1;
-  padding-bottom: 0.3rem;
-}
-
-!*==============for Left side==============*!
-
-.counter {
-  float: right;
-  color: #989DA1;
-}
-
-!*==============for Header==============*!
-!* today: schedule panel *!
-.time, .schedule {
-  font-size: 0.85em;
-  margin-right: 0.25rem;
-}
-
-.time {
-  color: #509DFF;
-}
-
-.schedule {
-  color: #989DA1;
-}
-
-!* tag lists*!
-header ul {
-  display: flex;
-  font-size: 0.8rem;
-}
+ header ul {
+   display: flex;
+   font-size: 0.8rem;
+ }
 
 header li {
   margin-right: 0.5rem;
@@ -195,11 +164,94 @@ header input[type="radio"]:checked + label {
   border-color: transparent;
 }
 
-!*==============for Main Content area==============*!
-main {
-  font-size: 14px;
+main > section:nth-child(2) {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  height: 0;
 }
 
+.mainLists li {
+  line-height: 1.5;
+}
+
+label[class="forCounting"] {
+  display: block;
+  padding: 0.25rem 0.1rem;
+  border-radius: 0.25rem;
+}
+
+.forCounting:checked + label {
+  background-color: #CAE2FF;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.taskName {
+  margin-right: 0.25em;
+}
+
+.forChecking:checked + label {
+  color: #BEC2C6;
+  text-decoration-line: line-through;
+}
+
+.forChecking:checked + label > .floatRight {
+  display: none;
+}
+
+.tag {
+  font-size: 0.75em;
+  color: #BEC2C6;
+  padding: 0.05em 0.5em;
+  border-radius: 0.75rem;
+  border: 1px solid #BEC2C6;
+  margin-right: 0.5em;
+}
+
+.floatRight {
+  float: right;
+  font-size: 0.9em;
+  color: #8C8F94;
+  margin-right: 0.25em;
+  margin-top: 0.25em;
+}
+
+/*==============for Main Content area==============*/
+/* general to-do-list section */
+
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*==============LEGACY==============*/
+/*
+
+!*==============for General Classes==============*!
+.titleUnderline {
+  display: block;
+  border-bottom: 0.01rem solid #DADBE1;
+  padding-bottom: 0.3rem;
+}
+
+!*==============for Header==============*!
+!* today: schedule panel *!
+.time, .schedule {
+  font-size: 0.85em;
+  margin-right: 0.25rem;
+}
+
+.time {
+  color: #509DFF;
+}
+
+.schedule {
+  color: #989DA1;
+}
+
+!*==============for Main Content area==============*!
 .sectionForNotification {
   background-color: #F3F3F5;
   border-radius: 0.5rem;
@@ -223,65 +275,7 @@ main > .sectionForNotification {
 }
 
 !* general to-do-list section *!
-.todoLists li, .projectLists li {
-  margin-bottom: 0.25rem;
-}
 
-.todoName {
-  margin-right: 0.25em;
-}
-
-.detailIcon {
-  width: 0.9em;
-  height: 0.9em;
-  margin-right: 0.1em;
-  vertical-align: middle;
-}
-
-.forCounting {
-  display: none;
-}
-
-label[class="fullWidth"] {
-  width: auto;
-  display: block;
-  padding: 0.25rem 0.1rem;
-  border-radius: 0.25rem;
-}
-
-.forCounting:checked + label {
-  background-color: #CAE2FF;
-}
-
-.forChecking {
-  margin-right: 0.5rem;
-  vertical-align: middle;
-}
-
-.forChecking:checked + label {
-  color: #BEC2C6;
-}
-
-.forChecking:checked + label > .floatRight {
-  display: none;
-}
-
-.tag {
-  font-size: 0.75em;
-  color: #BEC2C6;
-  padding: 0.05em 0.5em;
-  border-radius: 0.75rem;
-  border: 1px solid #BEC2C6;
-  margin-right: 0.5em;
-}
-
-.floatRight {
-  float: right;
-  font-size: 0.9em;
-  color: #8C8F94;
-  margin-right: 0.25em;
-  margin-top: 0.25em;
-}
 
 .projectName {
   display: block;

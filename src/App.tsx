@@ -1,13 +1,51 @@
 import React, { useState } from "react";
 import MySvg from "./MySvg";
-import Header from "./Header";
+import TaskList from "./TaskList";
+import { Task } from "./task";
 // import Test from "./Test";
 
-function App() {
-  const [selectedNav, setSelectedNav] = useState("Inbox");
+function uploadFile(): void {
+  document.getElementById(`upload`)!.click();
+}
 
+function App() {
+  const [selectedNav, setSelectedNav] = useState(`Inbox`);
   const handleNavChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedNav(e.target.value);
+  };
+
+  const [textLines, setEntireText] = useState(Array<Task>);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const fileReader = new FileReader();
+    let file: Blob | null = null;
+
+    if (e.target.files) {
+      file = e.target.files![0];
+    }
+
+    fileReader.addEventListener("load", () => {
+      setEntireText(
+        fileReader
+          .result!.toString()
+          .trim()
+          .split(`\n`)
+          /*          .map((line: string) => {
+            return new Task(line.trim());
+          })*/
+          .map((line: string) => {
+            return new Task(line.trim());
+          })
+      );
+    });
+
+    if (file) {
+      fileReader.readAsText(file);
+    }
+  };
+
+  const [counts, setCounts] = useState(0);
+  const getCounter = (c: number) => {
+    setCounts(c);
   };
 
   return (
@@ -30,10 +68,13 @@ function App() {
                   <label htmlFor="inbox">
                     <img
                       src={MySvg.Inbox}
-                      alt="inbox icon"
+                      alt="todolist icon"
                       className="listIcon"
                     />
                     Inbox
+                    <span className="counter" hidden={counts < 1}>
+                      {counts}
+                    </span>
                   </label>
                 </li>
               </ul>
@@ -157,8 +198,14 @@ function App() {
             <img src={MySvg.FolderAdd} alt="add project button" />
           </button>
           {/* TODO: setting feature */}
-          <input type="file" accept=".txt" />
-          <button>
+          <input
+            id="upload"
+            type="file"
+            accept=".txt"
+            hidden={true}
+            onChange={handleFileChange}
+          />
+          <button id="uploadButton" onClick={uploadFile}>
             <img src={MySvg.Upload} alt="upload file button" />
           </button>
           <button>
@@ -167,9 +214,7 @@ function App() {
         </footer>
       </aside>
       <section className="verticalFlexContainer">
-        <main className="verticalFlexContainer">
-          <Header nav={selectedNav} />
-        </main>
+        <TaskList nav={selectedNav} list={textLines} counter={getCounter} />
       </section>
     </>
   );
