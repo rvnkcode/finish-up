@@ -21,6 +21,7 @@ import Sticker from "./svg/sticker.svg";
 import Sun from "./svg/sun.svg";
 import TagAlt from "./svg/tag-alt.svg";
 import Upload from "./svg/upload.svg";
+import FlagRed from "./svg/flagRed.svg";
 
 const MySvg = {
   ArrowRight,
@@ -46,6 +47,7 @@ const MySvg = {
   Sun,
   TagAlt,
   Upload,
+  FlagRed,
 };
 
 export default MySvg;
