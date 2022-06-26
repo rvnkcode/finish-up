@@ -1,6 +1,16 @@
 import { v4 } from "uuid";
+import { isValid } from "date-fns";
 
 type Priority = `(A)` | `(B)` | `(C)` | string;
+type Category =
+  | `Today`
+  | `Upcoming`
+  | `Anytime`
+  | `Someday`
+  | `Logbook`
+  | `Trash`
+  | `Inbox`
+  | `empty`;
 
 // generic: 'T' is going to be a type declared at run-time instead of compile time. T for type
 interface Item {
@@ -14,6 +24,7 @@ interface Item {
   //fields?: Array<[string, string]>;
   fields?: { [key: string]: string };
   rawData: string;
+  where?: Category;
 }
 
 class Task implements Item {
@@ -35,7 +46,8 @@ class Task implements Item {
   rawData: string;
   dueDate?: Date;
   startDate?: Date;
-  urgent?: number;
+  isUrgent?: boolean;
+  where?: Category;
 
   constructor(line: string) {
     this.index = v4();
@@ -71,10 +83,36 @@ class Task implements Item {
         case `tag`:
           this.tags = this.fields.tag.split(`,`);
           break;
+        case `where`:
+          switch (this.fields.where) {
+            case `Today`:
+              this.where = `Today`;
+              break;
+            case `Anytime`:
+              this.where = `Anytime`;
+              break;
+            case `Upcoming`:
+              this.where = `Upcoming`;
+              break;
+            case `Someday`:
+              this.where = `Someday`;
+              break;
+            case `Logbook`:
+              this.where = `Logbook`;
+              break;
+            case `Trash`:
+              this.where = `Trash`;
+              break;
+            default:
+              this.where = `Inbox`;
+              break;
+          }
+          break;
         default:
           break;
       }
     }
+    this.setCategory();
     this.updateRawData();
   }
 
@@ -96,7 +134,7 @@ class Task implements Item {
 
   setCompletionDate(words: string[]): void {
     const completionDate: Date | null = this.isDate(words[0]);
-    if (this.isDone && completionDate) {
+    if (isValid(completionDate) && completionDate && this.isDone) {
       this.completionDate = completionDate;
       words.shift();
     }
@@ -104,7 +142,7 @@ class Task implements Item {
 
   setCreationDate(words: string[]): void {
     const creationDate: Date | null = this.isDate(words[0]);
-    if (creationDate) {
+    if (creationDate && isValid(creationDate)) {
       this.creationDate = creationDate;
       words.shift();
     } else {
@@ -165,16 +203,37 @@ class Task implements Item {
   setDueDate(text: string): void {
     //if (`due` in this.fields) { in은 오브젝트의 프로토타입까지 거슬러 올라가기 때문에
     const dueDate: Date | null = this.isDate(text);
-    if (dueDate) {
+    if (dueDate && isValid(dueDate)) {
       this.dueDate = dueDate;
     }
   }
 
   setStartDate(text: string): void {
     const startDate: Date | null = this.isDate(text);
-    if (startDate) {
+    if (startDate && isValid(startDate)) {
       this.startDate = startDate;
     }
+  }
+
+  setCategory(): void {
+    if (this.fields.where) return;
+
+    if (this.startDate && this.startDate <= new Date()) {
+      this.where = `Today`;
+      return;
+    }
+    if (this.startDate && this.startDate > new Date()) {
+      this.where = `Upcoming`;
+      return;
+    }
+    if (
+      (this.project.length > 0 || this.context.length > 0) &&
+      !this.startDate
+    ) {
+      this.where = `Anytime`;
+      return;
+    }
+    this.where = `Inbox`;
   }
 
   updateRawData(): void {
@@ -206,6 +265,9 @@ class Task implements Item {
       for (const [key, value] of Object.entries(this.fields)) {
         temp.push(`${key}:${value}`);
       }
+    }
+    if (this.where && !this.fields.where) {
+      temp.push(`where:${this.where}`);
     }
 
     this.rawData = temp.join(` `);

@@ -43,9 +43,19 @@ function App() {
     }
   };
 
-  const [counts, setCounts] = useState(0);
-  const getCounter = (c: number) => {
-    setCounts(c);
+  const [inboxCounts, setInboxCounts] = useState(0);
+  const getInboxCounter = (c: number) => {
+    setInboxCounts(c);
+  };
+
+  const [todayCounts, setTodayCounts] = useState(0);
+  const getTodayCounter = (c: number) => {
+    setTodayCounts(c);
+  };
+
+  const [trashCounts, setTrashCounts] = useState(0);
+  const getTrashCounter = (c: number) => {
+    setTrashCounts(c);
   };
 
   return (
@@ -72,8 +82,8 @@ function App() {
                       className="listIcon"
                     />
                     Inbox
-                    <span className="counter" hidden={counts < 1}>
-                      {counts}
+                    <span className="counter" hidden={inboxCounts < 1}>
+                      {inboxCounts}
                     </span>
                   </label>
                 </li>
@@ -96,6 +106,9 @@ function App() {
                       className="listIcon"
                     />
                     Today
+                    <span className="counter" hidden={todayCounts < 1}>
+                      {todayCounts}
+                    </span>
                   </label>
                 </li>
                 <li>
@@ -170,7 +183,7 @@ function App() {
                     Logbook
                   </label>
                 </li>
-                <li>
+                <li hidden={trashCounts < 1}>
                   <input
                     id="trash"
                     type="radio"
@@ -214,7 +227,13 @@ function App() {
         </footer>
       </aside>
       <section className="verticalFlexContainer">
-        <TaskList nav={selectedNav} list={textLines} counter={getCounter} />
+        <TaskList
+          nav={selectedNav}
+          list={textLines}
+          inboxCounter={getInboxCounter}
+          todayCounter={getTodayCounter}
+          trashCounter={getTrashCounter}
+        />
       </section>
     </>
   );

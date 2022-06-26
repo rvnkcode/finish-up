@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Task } from "./task";
 import { v4 } from "uuid";
 import MySvg from "./MySvg";
+import { formatDistanceToNowStrict, isFuture, isPast, isToday } from "date-fns";
 
 interface EntireList {
   nav: string;
   list: Array<Task>;
-  counter: Function;
+  inboxCounter: Function;
+  todayCounter: Function;
+  trashCounter: Function;
 }
 
-const getToday: Date = new Date();
-/*
-function dateToString(date: Date | undefined): string {
-  if (date) {
-    return date.toISOString().split(`T`)[0]; // yyyy-MM-dd
-  } else return ``;
+function isThereAnyNoTagTask(arr: Array<Task>) {
+  return arr.filter((t: Task) => t.tags.length === 0).length > 0;
 }
-*/
 
 function TaskList(props: EntireList) {
   const setHeaderIcon = () => {
@@ -41,15 +39,17 @@ function TaskList(props: EntireList) {
   /*const forDebug = () => {
     return alert(taskBase.inbox.forEach((t) => t.body));
   };*/
+
   const tagSet: Set<string> = new Set();
 
-  const isThereAnyNoTagTask = (arr: Array<Task>) => {
-    return arr.filter((t: Task) => t.tags.length === 0).length > 0;
-  };
+  const currentList: Task[] = props.list.filter((t: Task) => {
+    /*    if (selectedTag === `noTag`) {
+      return t.where === props.nav && t.tags.length === 0;
+    }*/
+    return t.where === props.nav;
+  });
 
-  const inbox: Task[] = props.list;
-
-  inbox.forEach((t: Task) => {
+  currentList.forEach((t: Task) => {
     if (t.tags.length > 0) {
       t.tags.forEach((v: string) => {
         tagSet.add(v);
@@ -57,24 +57,41 @@ function TaskList(props: EntireList) {
     }
   });
 
+  const [selectedTag, setSelectedTag] = useState("All");
+  const handleTagButton = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedTag(e.target.value);
+  };
+
+  const tagFiltering = currentList.filter((t: Task) => {
+    switch (selectedTag) {
+      case `noTag`:
+        return t.where === props.nav && t.tags.length === 0;
+      case `All`:
+        return t.where === props.nav;
+      default:
+        return t.where === props.nav && t.tags.includes(selectedTag);
+    }
+  });
+
   const tagButton = (v: Set<string>) => {
-    let copy: Array<string> = Array.from(v);
+    let copyFromTagSet: Array<string> = Array.from(v);
     return (
       <>
         <section>
           <ul>
-            <li key={v4()} hidden={copy.length < 1}>
+            <li key={v4()} hidden={copyFromTagSet.length < 1}>
               <input
                 id="tagsAll"
                 type="radio"
                 name="tags"
-                value="all"
+                value="All"
                 className="tagsAll"
-                defaultChecked={true}
+                checked={selectedTag === `All`}
+                onChange={handleTagButton}
               />
               <label htmlFor="tagsAll">All</label>
             </li>
-            {copy.map((e: string) => {
+            {copyFromTagSet.map((e: string) => {
               let tempID = v4();
               return (
                 <li key={tempID}>
@@ -84,18 +101,26 @@ function TaskList(props: EntireList) {
                     name={"tags"}
                     value={e}
                     className={"tagChecked"}
+                    checked={selectedTag === e}
+                    onChange={handleTagButton}
                   />
                   <label htmlFor={tempID}>{e}</label>
                 </li>
               );
             })}
-            <li hidden={!isThereAnyNoTagTask(inbox)}>
+            <li
+              hidden={
+                !isThereAnyNoTagTask(currentList) || copyFromTagSet.length === 0
+              }
+            >
               <input
                 id="noTag"
                 type="radio"
                 name="tags"
                 value="noTag"
                 className="tagChecked"
+                checked={selectedTag === "noTag"}
+                onChange={handleTagButton}
               />
               <label htmlFor="noTag">•••</label>
             </li>
@@ -121,7 +146,7 @@ function TaskList(props: EntireList) {
     if (t.dueDate) {
       return (
         <img
-          src={MySvg.Flag}
+          src={isFuture(t.dueDate) ? MySvg.Flag : MySvg.FlagRed}
           alt="due date icon"
           className="floatRight detailIcon"
         />
@@ -131,19 +156,45 @@ function TaskList(props: EntireList) {
 
   const calcTilDue = (t: Task) => {
     if (t.dueDate) {
-      let minus: number = Math.round(
-        (t.dueDate.valueOf() - getToday.valueOf()) / (1000 * 60 * 60 * 24)
-      );
+      let diffDates: string = formatDistanceToNowStrict(t.dueDate);
       return (
-        <span className="floatRight">
-          {minus + (minus > 1 ? " days" : " day") + " left"}
-        </span>
+        <>
+          <span className={"floatRight" + (isFuture(t.dueDate) ? "" : " red")}>
+            {isToday(t.dueDate) ? "Today" : null}
+            {!isToday(t.dueDate) && isPast(t.dueDate) ? "Overdue" : null}
+            {isFuture(t.dueDate) ? diffDates + " left" : null}
+          </span>
+        </>
       );
     }
   };
 
+  // =================================== For Generate Counter ===================================
+  const passInboxCounter = () => {
+    let arrLength = props.list.filter((t: Task) => {
+      return t.where === `Inbox`;
+    });
+    return props.inboxCounter(arrLength.length);
+  };
+
+  const passTodayCounter = () => {
+    let arrLength = props.list.filter((t: Task) => {
+      return t.where === `Today`;
+    });
+    return props.todayCounter(arrLength.length);
+  };
+
+  const passTrashCounter = () => {
+    let arrLength = props.list.filter((t: Task) => {
+      return t.where === `Trash`;
+    });
+    return props.trashCounter(arrLength.length);
+  };
+
   const passCounter = () => {
-    return props.counter(inbox.length);
+    passInboxCounter();
+    passTodayCounter();
+    passTrashCounter();
   };
 
   return (
@@ -157,20 +208,26 @@ function TaskList(props: EntireList) {
 
       <section className="verticalFlexContainer">
         <ul className="mainLists" onLoad={passCounter}>
-          {inbox.map((t: Task) => {
+          {tagFiltering.map((t: Task) => {
             return (
               <li key={t.index}>
                 <input
                   type="checkbox"
                   id={t.index + "counting"}
                   className="forCounting"
+                  name="checks"
                   hidden={true}
                 />
                 <label htmlFor={t.index + "counting"} className="forCounting">
-                  <input type="checkbox" id={t.index} className="forChecking" />
+                  <input
+                    type="checkbox"
+                    id={t.index}
+                    className="forChecking"
+                    name="tasks"
+                  />
                   <label htmlFor={t.index}>
                     <span className="taskName">{t.body}</span>
-                    {/*TODO: notes, sublist*/}
+                    {/*TODO: notes, subTasks*/}
                     {tagIcon(t)}
                     {calcTilDue(t)}
                     {dueIcon(t)}
