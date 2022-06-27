@@ -4,6 +4,7 @@ import { v4 } from "uuid";
 import MySvg from "./MySvg";
 import { formatDistanceToNowStrict, isFuture, isPast, isToday } from "date-fns";
 
+// =================================== For Helper Function ===================================
 interface EntireList {
   nav: string;
   list: Array<Task>;
@@ -16,6 +17,7 @@ function isThereAnyNoTagTask(arr: Array<Task>) {
   return arr.filter((t: Task) => t.tags.length === 0).length > 0;
 }
 
+// =================================== Components Starts HERE ===================================
 function TaskList(props: EntireList) {
   const setHeaderIcon = () => {
     switch (props.nav) {
@@ -43,9 +45,6 @@ function TaskList(props: EntireList) {
   const tagSet: Set<string> = new Set();
 
   const currentList: Task[] = props.list.filter((t: Task) => {
-    /*    if (selectedTag === `noTag`) {
-      return t.where === props.nav && t.tags.length === 0;
-    }*/
     return t.where === props.nav;
   });
 
@@ -169,7 +168,7 @@ function TaskList(props: EntireList) {
     }
   };
 
-  // =================================== For Generate Counter ===================================
+  // =================================== For Generate Counter in nav bar ===================================
   const passInboxCounter = () => {
     let arrLength = props.list.filter((t: Task) => {
       return t.where === `Inbox`;
@@ -197,48 +196,68 @@ function TaskList(props: EntireList) {
     passTrashCounter();
   };
 
+  // =================================== return components ===================================
   return (
-    <main className="verticalFlexContainer">
-      <header>
-        <img src={setHeaderIcon()} alt={props.nav + " icon"} />
-        <h1>{props.nav}</h1>
-        {tagButton(tagSet)}
-        {/*<button onClick={forDebug}>debug</button>*/}
-      </header>
+    <>
+      <main className="verticalFlexContainer">
+        <header>
+          <img src={setHeaderIcon()} alt={props.nav + " icon"} />
+          <h1>{props.nav}</h1>
+          {tagButton(tagSet)}
+          {/*<button onClick={forDebug}>debug</button>*/}
+        </header>
 
-      <section className="verticalFlexContainer">
-        <ul className="mainLists" onLoad={passCounter}>
-          {tagFiltering.map((t: Task) => {
-            return (
-              <li key={t.index}>
-                <input
-                  type="checkbox"
-                  id={t.index + "counting"}
-                  className="forCounting"
-                  name="checks"
-                  hidden={true}
-                />
-                <label htmlFor={t.index + "counting"} className="forCounting">
+        <section className="verticalFlexContainer">
+          <ul className="mainLists" onLoad={passCounter}>
+            {tagFiltering.map((t: Task) => {
+              return (
+                <li key={t.index}>
                   <input
                     type="checkbox"
-                    id={t.index}
-                    className="forChecking"
-                    name="tasks"
+                    id={t.index + "counting"}
+                    className="forCounting"
+                    name="checks"
+                    hidden={true}
                   />
-                  <label htmlFor={t.index}>
-                    <span className="taskName">{t.body}</span>
-                    {/*TODO: notes, subTasks*/}
-                    {tagIcon(t)}
-                    {calcTilDue(t)}
-                    {dueIcon(t)}
+                  <label htmlFor={t.index + "counting"} className="forCounting">
+                    <input
+                      type="checkbox"
+                      id={t.index}
+                      className="forChecking"
+                      name="tasks"
+                    />
+                    <label htmlFor={t.index}>
+                      <span className="taskName">{t.body}</span>
+                      {/*TODO: notes, subTasks*/}
+                      {tagIcon(t)}
+                      {calcTilDue(t)}
+                      {dueIcon(t)}
+                    </label>
                   </label>
-                </label>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    </main>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </main>
+      <footer className="generalFooter">
+        <button className="mainFooter">
+          <img src={MySvg.Plus} alt="add task button" />
+        </button>
+        <button className="mainFooter">
+          <img src={MySvg.Close} alt="delete button" />
+        </button>
+        <button className="mainFooter">
+          <img src={MySvg.CalendarAdd} alt="add schedule button" />
+        </button>
+        <button className="mainFooter">
+          <img src={MySvg.ArrowRight} alt="move task button" />
+        </button>
+        <button className="mainFooter">
+          <img src={MySvg.Search} alt="search button" />
+        </button>
+      </footer>
+    </>
   );
 }
 
